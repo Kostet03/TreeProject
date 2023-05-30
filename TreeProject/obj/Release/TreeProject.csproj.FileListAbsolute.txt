@@ -1,0 +1,16 @@
+D:\Examples\TreeProject\TreeProject\TreeProject\bin\Release\TreeProject.exe.config
+D:\Examples\TreeProject\TreeProject\TreeProject\bin\Release\TreeProject.exe
+D:\Examples\TreeProject\TreeProject\TreeProject\bin\Release\TreeProject.pdb
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.csproj.AssemblyReference.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.csproj.SuggestedBindingRedirects.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\MainWindow.g.cs
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\App.g.cs
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject_MarkupCompile.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject_MarkupCompile.lref
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\MainWindow.baml
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.g.resources
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.Properties.Resources.resources
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.csproj.GenerateResource.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.csproj.CoreCompileInputs.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.exe
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Release\TreeProject.pdb
