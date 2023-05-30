@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TreeProject"
         mc:Ignorable="d"
-        Title="Курсовая работа Оробей К.А." Height="450" Width="600">
+        Title="Курсовая работа Оробей К.С." Height="450" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
