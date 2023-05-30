@@ -1,0 +1,16 @@
+D:\Examples\TreeProject\TreeProject\TreeProject\bin\Debug\TreeProject.exe.config
+D:\Examples\TreeProject\TreeProject\TreeProject\bin\Debug\TreeProject.exe
+D:\Examples\TreeProject\TreeProject\TreeProject\bin\Debug\TreeProject.pdb
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.csproj.AssemblyReference.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.csproj.SuggestedBindingRedirects.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\MainWindow.g.cs
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\App.g.cs
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject_MarkupCompile.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject_MarkupCompile.lref
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\MainWindow.baml
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.g.resources
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.Properties.Resources.resources
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.csproj.GenerateResource.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.csproj.CoreCompileInputs.cache
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.exe
+D:\Examples\TreeProject\TreeProject\TreeProject\obj\Debug\TreeProject.pdb
