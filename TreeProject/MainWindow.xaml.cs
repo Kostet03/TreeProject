@@ -23,13 +23,12 @@ namespace TreeProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly int maxChilds = 2;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public Node CreateNode(int maxDepth)
+        public Node CreateNode(int maxDepth, int childrensCount)
         {
             var node = new Node
             {
@@ -40,9 +39,9 @@ namespace TreeProject
 
             if (maxDepth > 0)
             {
-                for (var i = 0; i < maxChilds; ++i)
+                for (var i = 0; i < childrensCount; ++i)
                 {
-                    node.Nodes.Add(CreateNode(maxDepth - 1));
+                    node.Nodes.Add(CreateNode(maxDepth - 1, childrensCount));
                 }
             }
 
@@ -52,11 +51,12 @@ namespace TreeProject
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int.TryParse(MaxLevelTextBox.Text, out var maxDepth);
+            int.TryParse(ChildrensCountTextBox.Text, out var childrensCount);
 
-            if (maxDepth > 0 && maxDepth <= 10)
+            if (maxDepth > 0 && maxDepth <= 10 && childrensCount > 0 && childrensCount <= 5)
             {
                 var itemsSource = new List<Node>();
-                itemsSource.Add(CreateNode(maxDepth));
+                itemsSource.Add(CreateNode(maxDepth, childrensCount));
                 Tree.ItemsSource = itemsSource;
                 Log($"Успешная генерация дерева с количеством уровней: {maxDepth}");
             }

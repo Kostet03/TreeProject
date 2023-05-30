@@ -15,12 +15,38 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="MaxLevelTextBox"
+        <Grid Grid.Row="0"
+              Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Количество уровней:"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="MaxLevelTextBox"
                  Grid.Row="0"
-                 Grid.Column="0"
+                 Grid.Column="1"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
                  Width="50"/>
+            <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Количество потомков на уровне:"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="ChildrensCountTextBox"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="50"/>
+        </Grid>
+        
         <Button Content="Сгенерировать дерево"
                 Grid.Column="1"
                 Grid.Row="0"
