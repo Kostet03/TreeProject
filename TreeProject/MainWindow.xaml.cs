@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -15,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TreeProject.Models;
+using TreeProject.Services;
 
 namespace TreeProject
 {
@@ -28,20 +30,15 @@ namespace TreeProject
             InitializeComponent();
         }
 
-        public Node CreateNode(int maxDepth, int childrensCount)
+        public Node CreateNode(int maxDepth, int childrensCount, Node parent = null)
         {
-            var node = new Node
-            {
-                Key = Guid.NewGuid(),
-                Name = $"Level {maxDepth}",
-                Nodes = new List<Node>()
-            };
+            var node = RandomGenerator.GenerateRandomNode(parent);
 
             if (maxDepth > 0)
             {
                 for (var i = 0; i < childrensCount; ++i)
                 {
-                    node.Nodes.Add(CreateNode(maxDepth - 1, childrensCount));
+                    node.Nodes.Add(CreateNode(maxDepth - 1, childrensCount, node));
                 }
             }
 
@@ -55,8 +52,9 @@ namespace TreeProject
 
             if (maxDepth > 0 && maxDepth <= 10 && childrensCount > 0 && childrensCount <= 5)
             {
-                var itemsSource = new List<Node>();
-                itemsSource.Add(CreateNode(maxDepth, childrensCount));
+                var itemsSource = new ObservableCollection<Node>();
+                var localNodes = CreateNode(maxDepth, childrensCount);
+                itemsSource.Add(localNodes);
                 Tree.ItemsSource = itemsSource;
                 Log($"Успешная генерация дерева с количеством уровней: {maxDepth}");
             }
@@ -72,6 +70,31 @@ namespace TreeProject
             using (StreamWriter sw = new StreamWriter(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\log.txt", true))
             {
                 sw.WriteLine(String.Format("{0,-23} {1}", DateTime.Now.ToString() + ":", message));
+            }
+        }
+
+        private void InsertNode_Click(object sender, RoutedEventArgs e)
+        {
+            if (Tree.SelectedItem is Node selectedNode)
+            {
+                selectedNode.Nodes.Add(RandomGenerator.GenerateRandomNode(selectedNode));
+
+            }
+        }
+
+        private void RemoveNode_Click(object sender, RoutedEventArgs e)
+        {
+            if (Tree.SelectedItem is Node selectedNode)
+            {
+                if (selectedNode.Parent != null)
+                {
+                    var parent = selectedNode.Parent;
+                    parent.Nodes.Remove(selectedNode);
+                }
+                else
+                {
+                    MessageBox.Show("Нельзя удалять рутовый элемент!!!");
+                }
             }
         }
     }
