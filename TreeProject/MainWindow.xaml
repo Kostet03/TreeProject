@@ -111,6 +111,7 @@
                   Grid.ColumnSpan="2"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
+                  MouseDoubleClick="TreeItemDoubleClick"
                   x:Name="Tree">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=Nodes}">

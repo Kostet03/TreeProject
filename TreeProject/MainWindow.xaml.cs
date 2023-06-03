@@ -147,5 +147,16 @@ namespace TreeProject
             SetTreeButtons(true);
             filteredListBox.Visibility = Visibility.Collapsed;
         }
+
+        private void TreeItemDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Tree.SelectedItem is Node node)
+            {
+                if (node != null)
+                {
+                    MessageBox.Show($"ФИО: {node.FIO} \r\n Дата рождения: {node.Birthday.ToString("d")} \r\n Адрес: г. {node.City}, ул. {node.Street}, д.{node.House} \r\n Руководитель: {node.Parent?.FIO}");
+                }
+            }
+        }
     }
 }
