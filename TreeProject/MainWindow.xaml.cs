@@ -25,6 +25,7 @@ namespace TreeProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<Node> CurrentItemsSource;
         public MainWindow()
         {
             InitializeComponent();
@@ -55,6 +56,7 @@ namespace TreeProject
                 var itemsSource = new ObservableCollection<Node>();
                 var localNodes = CreateNode(maxDepth, childrensCount);
                 itemsSource.Add(localNodes);
+                CurrentItemsSource = itemsSource;
                 Tree.ItemsSource = itemsSource;
                 Log($"Успешная генерация дерева с количеством уровней: {maxDepth}");
             }
@@ -96,6 +98,54 @@ namespace TreeProject
                     MessageBox.Show("Нельзя удалять рутовый элемент!!!");
                 }
             }
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            filteredCollection?.Clear();
+            if (!string.IsNullOrEmpty(SearchBox.Text))
+            {
+                RecursiveSearch(SearchBox.Text, CurrentItemsSource);
+
+                if (filteredCollection.Count > 0)
+                {
+                    filteredListBox.ItemsSource = filteredCollection;
+                    filteredListBox.Visibility = Visibility.Visible;
+                    SetTreeButtons(false);
+                }
+            }
+        }
+
+        private void SetTreeButtons(bool isEnabled)
+        {
+            GenerateTreeButton.IsEnabled = isEnabled;
+            InsertNodeButton.IsEnabled = isEnabled;
+            RemoveNodeButton.IsEnabled = isEnabled;
+        }
+
+        ObservableCollection<Node> filteredCollection = new ObservableCollection<Node>();
+
+        private void RecursiveSearch(string text, ObservableCollection<Node> collection)
+        {
+            foreach (var node in collection)
+            {
+                if (node.FIO.ToLower().Contains(text.ToLower()))
+                {
+                    filteredCollection.Add(node);
+                }
+                if (node.Nodes != null)
+                {
+                    RecursiveSearch(text, node.Nodes);
+                }
+            }
+        }
+
+        private void RemoveSearch_Click(object sender, RoutedEventArgs e)
+        {
+            filteredCollection?.Clear();
+            SearchBox.Text = string.Empty;
+            SetTreeButtons(true);
+            filteredListBox.Visibility = Visibility.Collapsed;
         }
     }
 }

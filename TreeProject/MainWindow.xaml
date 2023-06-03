@@ -12,12 +12,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="75"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0"
               Grid.Column="0">
             <Grid.RowDefinitions>
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -56,26 +57,54 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-        <Button Content="Сгенерировать дерево"
+            <Button x:Name="GenerateTreeButton" 
+                    Content="Сгенерировать дерево"
                 Grid.Column="0"
                 Grid.Row="0"
-                Grid.RowSpan="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Click="Button_Click"/>
-            <Button Grid.Column="1"
+            <Button x:Name="InsertNodeButton" 
+                    Grid.Column="1"
                     Grid.Row="0"
                     Content="Вставить узел"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Click="InsertNode_Click"/>
-            <Button Grid.Column="1"
+            <Button x:Name="RemoveNodeButton" 
+                    Grid.Column="1"
                     Grid.Row="1"
                     Content="Удалить выбранный узел"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Click="RemoveNode_Click"/>
+            <TextBox x:Name="SearchBox"
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+            <Grid Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            <Button x:Name="SearchButton" 
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"
+                    Content="Поиск"
+                    Click="Search_Click"/>
+                <Button x:Name="RemoveSearchButton" 
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Stretch"
+                    Content="Очистить"
+                    Click="RemoveSearch_Click"/>
+            </Grid>
         </Grid>
         <TreeView Grid.Row="1"
                   Grid.Column="0"
@@ -93,5 +122,11 @@
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
+        <ListBox x:Name="filteredListBox" 
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 DisplayMemberPath="FIO"
+                 Visibility="Collapsed"/>
     </Grid>
 </Window>
